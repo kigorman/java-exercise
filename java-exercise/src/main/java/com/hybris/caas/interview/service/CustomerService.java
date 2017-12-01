@@ -1,5 +1,6 @@
 package com.hybris.caas.interview.service;
 
+import com.hybris.caas.interview.model.Address;
 import com.hybris.caas.interview.model.Customer;
 
 /**
@@ -17,4 +18,9 @@ public interface CustomerService {
      */
     void updateCustomer(Customer customer);
 
+    /**
+     * 
+     * delete a customer address
+     */
+    void deleteAddress(Customer customer, Address address);
 }

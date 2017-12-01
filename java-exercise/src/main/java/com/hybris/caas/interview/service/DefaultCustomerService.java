@@ -1,6 +1,7 @@
 package com.hybris.caas.interview.service;
 
 import com.hybris.caas.interview.exceptions.ResourceNotFoundException;
+import com.hybris.caas.interview.model.Address;
 import com.hybris.caas.interview.model.Customer;
 import com.hybris.caas.interview.repository.DocumentRepositoryClient;
 
@@ -30,5 +31,10 @@ public class DefaultCustomerService implements CustomerService
     {
         documentClient.putCustomer(customer);
     }
+    
+    public void deleteAddress(Customer customer, Address address) {
+        customer.getAddressBook().remove(address);
+        this.updateCustomer(customer);
+  	}
 
 }

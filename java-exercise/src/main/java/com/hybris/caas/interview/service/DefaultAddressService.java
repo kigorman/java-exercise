@@ -24,14 +24,11 @@ public class DefaultAddressService implements AddressService {
         return addresses;
     }
 
-    /**
-     * Deletes the address from the customer's address book
-     */
+    
     public void deleteAddress(String customerId, String addressId) {
         Customer customer = customerService.getCustomerById(customerId);
         Address address = findAddressInAddressBook(customer.getAddressBook(), addressId);
-        customer.getAddressBook().remove(address);
-        customerService.updateCustomer(customer);
+        customerService.deleteAddress(customer, address);
     }
 
     /**
